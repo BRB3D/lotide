@@ -17,30 +17,20 @@ const assertArraysEqual =  (arr1, arr2) => {
 };
 
 const middle = (arr) => {
+  if (arr.length <= 2) return [];
   let middle = arr.length / 2;
-  let totalLength = arr.length;
-  if (totalLength > 2) {
-    if (middle % 1 === 0) {
-      return [arr[middle - 1], arr[middle]];
-    } else {
-      return [arr[Math.floor(middle)]];
-    }
-  }
-  return [];
+  if (middle % 1 === 0) {
+    return [arr[middle - 1], arr[middle]];
+  } 
+  return [arr[Math.floor(middle)]];
 };
+ 
 
 
 
 
-assertArraysEqual([eqArrays(middle([0,1,2,3,4,5,6]), [3])], [true]);
-assertArraysEqual([eqArrays(middle([0,1,2,3,4,5]), [2,3])], [true]);
-assertArraysEqual([eqArrays(middle([0,1]), [])], [true]);
-assertArraysEqual([eqArrays(middle([0,1,2]), [1])], [true]);
-assertArraysEqual([eqArrays(middle([1, 2, 3, 4, 5, 6]), [3,4])], [true]);
-
-
-//Implemented a multiple functions approach that is extremely convoluted but it works.
-/* //checks if the functio is valid.
+/* //Implemented a multiple functions approach that is extremely convoluted but it works.
+//checks if the functio is valid.
 let verification = (arr) => {
   return arr.length > 2 ? arr : [];
 }
@@ -56,7 +46,7 @@ let evenOrOdd = (numAndArray) => {
   if (numAndArray[0] % 1 === 0) {
     return ['even',numAndArray[0], numAndArray[1]];
   }
-return ['odd', Math.ceil(numAndArray[0]), numAndArray[1]];
+return ['odd', Math.floor(numAndArray[0]), numAndArray[1]];
 };
 
 const middle = (evenOrOdd) => {
@@ -67,5 +57,13 @@ if (evenOrOdd[1] === 0) {
 } else if (evenOrOdd[0] === 'odd') {
   return  [evenOrOdd[2][evenOrOdd[1]]];
 }
-};
- */
+}; */
+
+assertArraysEqual([eqArrays(middle([0,1,2,3,4,5,6]), [3])], [true]);
+assertArraysEqual([eqArrays(middle([0,1,2,3,4,5]), [2,3])], [true]);
+assertArraysEqual([eqArrays(middle([0,1]), [])], [true]);
+assertArraysEqual([eqArrays(middle([0,1,2]), [1])], [true]);
+assertArraysEqual([eqArrays(middle([1, 2, 3, 4, 5, 6]), [3,4])], [true]);
+
+
+/* console.log(middle(evenOrOdd(division(verification([0,1,2,3,4,5]))))); */
